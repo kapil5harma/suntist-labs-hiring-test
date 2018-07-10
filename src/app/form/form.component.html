@@ -1,0 +1,20 @@
+<div class="container">
+  <form>
+    <mat-form-field>
+      <input matInput placeholder="Enter your name" [formControl]="name" required>
+      <mat-error *ngIf="name.invalid">{{getErrorMessage('name')}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Enter your age" [formControl]="age" required>
+      <mat-error *ngIf="age.invalid">{{getErrorMessage('age')}}</mat-error>
+    </mat-form-field>
+
+    <mat-radio-group name="gender" class="radio-group" [(ngModel)]="selectedGender">
+      <mat-radio-button class="radio-button" *ngFor="let gender of genders" [value]="gender">
+        {{gender}}
+      </mat-radio-button>
+    </mat-radio-group>
+
+    <button class="submit-btn" mat-button>Submit</button>
+  </form>
+</div>

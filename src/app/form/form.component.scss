@@ -1,0 +1,71 @@
+.container {
+  width: 500px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  mat-form-field {
+    width: 500px;
+    height: 60px;
+    .mat-form-field-underline {
+      height: 2px !important;
+      background-color: #ff0000 !important;
+    }
+    .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
+    .mat-form-field-empty.mat-form-field-label {
+      font: 12px/24px Futura Md Bt medium;
+    }
+  }
+  mat-radio-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 30px 0;
+    mat-radio-button {
+      width: 200px;
+      height: 80px;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 10px;
+      font: 12px/24px Futura Md Bt Medium;
+      border-color: #ff0000;
+      background: #ffffff;
+      color: #cccccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:hover {
+        background: #ff0000;
+        color: #ffffff;
+      }
+      &.mat-radio-checked {
+        background: #ff0000;
+        color: #ffffff;
+      }
+      .mat-radio-container {
+        display: none;
+      }
+      .mat-radio-label-content {
+        padding-left: 0 !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 80px;
+      }
+    }
+  }
+  .submit-btn {
+    width: 500px;
+    height: 100px;
+    background: #cccccc;
+    color: #ffffff;
+    font: 24px Futura Md Bt Medium;
+    border-radius: 10px;
+  }
+}
+
+.example-container > * {
+  width: 100%;
+}

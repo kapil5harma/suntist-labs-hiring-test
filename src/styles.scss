@@ -1,8 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'assets/fonts/Futura-Md-Bt/style.css';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 body,
 html {
   font-family: 'Futura Md BT Medium';
+  margin: 0;
+  .results-container {
+    width: 80%;
+    margin: 30px auto;
+    min-height: 100px;
+    box-sizing: border-box;
+    background: #fff;
+    color: #000;
+    font: 10px/14px Futura Md Bt Medium;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+  }
 }
