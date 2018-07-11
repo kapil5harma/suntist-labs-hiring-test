@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   imports: [CommonModule, BrowserAnimationsModule],
@@ -17,7 +18,8 @@ import { MatTableModule } from '@angular/material/table';
     MatInputModule,
     MatRadioModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    MatSnackBarModule
   ]
 })
 export class CustomMaterialModule {}

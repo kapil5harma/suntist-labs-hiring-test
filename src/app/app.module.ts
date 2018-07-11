@@ -10,7 +10,6 @@ import { ResultsComponent } from './results/results.component';
 import { ApiResultsComponent } from './api-results/api-results.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WebStorageModule } from 'ngx-store';
-import { ToastComponent } from './toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +17,7 @@ import { ToastComponent } from './toast/toast.component';
     HomeComponent,
     FormComponent,
     ResultsComponent,
-    ApiResultsComponent,
-    ToastComponent
+    ApiResultsComponent
   ],
   imports: [
     BrowserModule,

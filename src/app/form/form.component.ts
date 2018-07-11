@@ -2,6 +2,7 @@ import { LocalstorageService } from './../local-storage.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ViewEncapsulation } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-form',
@@ -10,20 +11,25 @@ import { ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class FormComponent implements OnInit {
-  constructor(private localStorageService: LocalstorageService) {}
+  constructor(
+    private localStorageService: LocalstorageService,
+    public snackBar: MatSnackBar
+  ) {}
 
-  genders: string[] = ['Male', 'Female'];
   data: any;
+  genders: string[] = ['Male', 'Female'];
 
   name = new FormControl('', [
     Validators.required,
     Validators.pattern(/^[a-z,',-]+(\s)[a-z,',-]+$/i)
   ]);
+
   age = new FormControl('', [
     Validators.required,
     Validators.min(1),
     Validators.max(99)
   ]);
+
   radioButton = new FormControl('', Validators.required);
 
   getErrorMessage(propertyName) {
@@ -47,14 +53,23 @@ export class FormComponent implements OnInit {
   }
 
   onSubmit() {
-    if (!this.name.invalid && !this.age.invalid && !this.radioButton.invalid) {
+    if (!this.name.invalid && !this.age.invalid) {
       const dataObject = {
         name: this.name.value,
-        age: this.age.value,
-        sex: this.radioButton.value
+        age: this.age.value
       };
-      this.localStorageService.saveData(dataObject);
-      this.data = this.localStorageService.retrieveData();
+      if (this.radioButton.invalid) {
+        this.snackBar.open('Please select Gender!', 'Dismiss', {
+          duration: 3000,
+          verticalPosition: 'bottom'
+        });
+      } else {
+        const dataToSave = Object.assign(dataObject, {
+          sex: this.radioButton.value
+        });
+        this.localStorageService.saveData(dataToSave);
+        this.data = this.localStorageService.retrieveData();
+      }
     }
   }
 
