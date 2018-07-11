@@ -1,3 +1,4 @@
+import { LocalstorageService } from './../local-storage.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ViewEncapsulation } from '@angular/core';
@@ -9,10 +10,10 @@ import { ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class FormComponent implements OnInit {
-  constructor() {}
+  constructor(private localStorageService: LocalstorageService) {}
 
-  selectedGender: string;
   genders: string[] = ['Male', 'Female'];
+  data: any;
 
   name = new FormControl('', [
     Validators.required,
@@ -45,5 +46,19 @@ export class FormComponent implements OnInit {
     }
   }
 
-  ngOnInit() {}
+  onSubmit() {
+    if (!this.name.invalid && !this.age.invalid && !this.radioButton.invalid) {
+      const dataObject = {
+        name: this.name.value,
+        age: this.age.value,
+        sex: this.radioButton.value
+      };
+      this.localStorageService.saveData(dataObject);
+      this.data = this.localStorageService.retrieveData();
+    }
+  }
+
+  ngOnInit() {
+    this.data = this.localStorageService.retrieveData();
+  }
 }

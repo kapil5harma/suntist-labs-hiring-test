@@ -8,14 +8,26 @@ import { FormComponent } from './form/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResultsComponent } from './results/results.component';
 import { ApiResultsComponent } from './api-results/api-results.component';
+import { HttpClientModule } from '@angular/common/http';
+import { WebStorageModule } from 'ngx-store';
+import { ToastComponent } from './toast/toast.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, FormComponent, ResultsComponent, ApiResultsComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    FormComponent,
+    ResultsComponent,
+    ApiResultsComponent,
+    ToastComponent
+  ],
   imports: [
     BrowserModule,
     CustomMaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    WebStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

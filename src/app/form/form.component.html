@@ -1,5 +1,5 @@
 <div class="container">
-  <form>
+  <form #myForm="ngForm" (ngSubmit)="onSubmit()">
     <mat-form-field>
       <input matInput placeholder="Enter your name" [formControl]="name" required>
       <mat-error *ngIf="name.invalid">{{getErrorMessage('name')}}</mat-error>
@@ -9,7 +9,7 @@
       <mat-error *ngIf="age.invalid">{{getErrorMessage('age')}}</mat-error>
     </mat-form-field>
 
-    <mat-radio-group name="gender" class="radio-group" [(ngModel)]="selectedGender">
+    <mat-radio-group name="gender" [formControl]="radioButton" class="radio-group">
       <mat-radio-button class="radio-button" *ngFor="let gender of genders" [value]="gender">
         {{gender}}
       </mat-radio-button>
@@ -18,3 +18,4 @@
     <button class="submit-btn" mat-button>Submit</button>
   </form>
 </div>
+<app-results [tableData]="data"></app-results>
