@@ -1,4 +1,6 @@
-# SuntistLabsHiringTest
+##### This project is created as a solution for Angular Developer Hiring Test For Suntist Labs
+
+## SuntistLabsHiringTest
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
